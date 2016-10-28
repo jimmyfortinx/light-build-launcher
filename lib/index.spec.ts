@@ -1,11 +1,17 @@
-import * as index from "./index";
+import LightBuildLauncher from ".";
 
-describe("index", function () {
-    it("returns test", function () {
-        expect(index.test()).toBe("test");
-    });
+describe("LightBuildLauncher", () => {
+    describe("getTaskName function", () => {
+        it("returns the task name", () => {
+            var launcher = new LightBuildLauncher(["test"]);
 
-    it("patate", function () {
-        expect(index.test()).toBe("toto");
-    });
+            expect(launcher.getTaskName()).toBe("test");
+        });
+
+        it("returns null if no args", () => {
+            var launcher = new LightBuildLauncher([]);
+
+            expect(launcher.getTaskName()).toBe(null);
+        });
+    })
 });
